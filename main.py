@@ -1,9 +1,10 @@
+import sys
 import os
 import shutil
 
 HEADER = "osm_100-"   
 
-def convert(root, dpi = "l", mapId = "1"):
+def convert(root = "tiles", mapId = "1", dpi = "l"):
     tree = os.walk(root)
     for folder in tree:
         if len(folder[2]) > 0:
@@ -17,4 +18,6 @@ def convert(root, dpi = "l", mapId = "1"):
 
 
 if __name__ == "__main__":
-    convert("navionics")
+    root = sys.argv[1]
+    mapId = sys.argv[2]
+    convert(root, mapId)
